@@ -1,10 +1,18 @@
 #!/usr/bin/python3
 
-# A function that prints all integers of a list, in reverse order
+'''
+Write a function that replaces an element in a list at a specific position without modifying the original list (like in C).
 
-def print_reversed_list_integer(my_list=[]):
-    if isinstance(my_list, list):
-        i = len(my_list) - 1
-        while i >= 0:
-            print("{:d}".format(my_list[i]))
-            i -= 1
+Prototype: def new_in_list(my_list, idx, element):
+If idx is negative, the function should return a copy of the original list
+If idx is out of range (> of number of element in my_list), the function should return a copy of the original list
+You are not allowed to import any module
+You are not allowed to use try/except
+'''
+
+def new_in_list(my_list, idx, element):
+    new_list = my_list[:]
+    if idx < 0 or idx > (len(my_list) - 1):
+        return new_list
+    new_list[idx] = element
+    return new_list
